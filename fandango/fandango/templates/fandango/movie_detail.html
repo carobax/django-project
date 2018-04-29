@@ -1,11 +1,31 @@
-{% extends "movies/base.html" %}
-{% block content %}
+{% extends "fandango/base.html" %}
 
-<h2>{{ movie.title }}</h2>
-<p>Movie Details</p>
-<ul>
-    <li>Rating {{ rating }}</li>
-    <li>Theaters {{ theaters }}</li>
-</ul>
-<img alt="movie poster" src={{ poster }}>
+{% block breadcrumbs %}
+    <li class="breadcrumb-item"><a href="{% url "home" %}">Home</a></li>
+    <li class="breadcrumb-item active">Movie Detail</li>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
+    <h2>{{ title }}</h2>
+    <p>Movie Details</p>
+    <img alt="movie poster" src={{ poster }} style="border-radius: 10px; width: 400px;">
+  </div>
+  <div class="col-md-6">
+    <ul>
+        <li>Rating {{ rating }}</li>
+        <li>Playing in these theaters: <a href="/theaters/{{ m.th_id }}"><h6>{{ theaters }}</h6></a></li>
+        <li>runtime {{ runtime }}</li>
+    </ul>
+  </div>
+</div>
+
+
+
+<!-- <div id="containerChart"></div> -->
+{% endblock %}
+
+{% block script %}
+
 {% endblock %}

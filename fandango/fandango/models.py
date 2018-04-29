@@ -9,6 +9,9 @@ class Theater(models.Model):
     long = models.DecimalField(max_digits=10, decimal_places=4, null=True)
     city = models.CharField(max_length=30)
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('theater-details', args=[str(self.theater_id)])
 
     def __str__(self):
         return self.name + ' (' + self.theater_id + ')'
@@ -23,6 +26,11 @@ class Movie(models.Model):
     poster = models.URLField()
     rating = models.CharField(max_length=10, null=True)
     movie_genre = models.CharField(max_length=50, null=True)
+    
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('movie-details', args=[str(self.movie_id)])
 
     def __str__(self):
         return self.title + ' (' + str(self.movie_id) + ')'

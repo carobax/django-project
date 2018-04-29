@@ -49,7 +49,7 @@ def list_theaters(request):
 
 
 
-    return render(request, "templates/list.html", {
+    return render(request, "fandango/list.html", {
         "list_type": "Theaters",
         "objects": objects,
 
@@ -70,4 +70,18 @@ def movie_detail(request, movie_id):
       }
       return render(request, "fandango/movie_detail.html", context)
 
+def theater_detail(request, th_id):
+      theater = get_object_or_404(models.Theater, theater_id=th_id)
+      movie_objects = theater.movie_set.all()
+      movies = []
+      for m, movie in enumerate(movie_objects):
+          movies.append(movie.title)
+
+      context = {
+        'name' : theater.name,
+        'address' : theater.address,
+        'movies' : movie_objects,
+    
+      }
+      return render(request, "fandango/theater_detail.html", context)
 # Create your views here.

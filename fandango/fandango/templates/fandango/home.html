@@ -1,5 +1,6 @@
 {% extends "fandango/base.html" %}
 {% load static %}
+<link href="{% static "fandango/css/bar-style.css" %}" rel="stylesheet">
 
 {% block breadcrumbs %}
     <li class="breadcrumb-item active">Home</li>
@@ -34,13 +35,22 @@
 
     </div>
     <hr>
+
     <div class="row">
-        <div class="col-12">
-            <pre id="raw-json"></pre>
-        </div>
+        <div class="col-md-6">
+          <div id = "map" style = "width:640px; height:480px;"></div>
+          </div>
+          <div class="col-md-6">
+            <svg width="400"></svg>
+          </div>
     </div>
 {% endblock %}
 
 {% block script %}
-    <!-- <script src="{% static "winners/js/home.js" %}"></script> -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1-hCBd1aXuwFLWiFIFk3_aQ3mkq-nYvo&callback=initMap"> </script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="{% static "fandango/js/map.js" %}"></script>
+    <script src="{% static "fandango/js/bar.js" %}"></script>
 {% endblock %}
