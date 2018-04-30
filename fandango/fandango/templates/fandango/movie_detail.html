@@ -7,17 +7,28 @@
 
 {% block content %}
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-12">
     <h2>{{ title }}</h2>
-    <p>Movie Details</p>
-    <img alt="movie poster" src={{ poster }} style="border-radius: 10px; width: 400px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <img alt="movie poster" src={{ poster }} style="border-radius: 10px; height: 600px;">
   </div>
   <div class="col-md-6">
-    <ul>
-        <li>Rating {{ rating }}</li>
-        <li>Playing in these theaters: <a href="/theaters/{{ m.th_id }}"><h6>{{ theaters }}</h6></a></li>
-        <li>runtime {{ runtime }}</li>
-    </ul>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                Movie Details
+            </h5>
+            <p class="card-text">
+              <ul>
+                <li><p>Rating: {{ rating }}</p></li>
+                  <li><p>Playing in these theaters:</p> <a href="/theaters/{{ m.th_id }}"><p>{{ theaters }}</p></a></li>
+              </ul>
+            </p>
+        </div>
+    </div>
   </div>
 </div>
 

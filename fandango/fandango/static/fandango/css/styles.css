@@ -1,9 +1,32 @@
 .nav-margin {
   margin-left: 50px;
 }
-.white-link a:link {
-    color: white;
+/* So the links in the Nav Bar are white */
+.white-link{
+    color: white !important;
 }
+a:link, a:visited{
+color: #4B9CD3;
+}
+
+/* google fonts */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Passion One', cursive;
+  color: #13294B;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header-margin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* footer */
+
+
 
 /* d3 styles thanks to stack overflow https://stackoverflow.com/questions/21639305/d3js-take-data-from-an-array-instead-of-a-file?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa */
 
@@ -13,6 +36,7 @@
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
 
 .bar {
   fill: #4B9CD3;
@@ -29,7 +53,7 @@
 .d3-tip {
   line-height: 1;
   font-weight: bold;
-  padding: 12px;
+  padding: 10px;
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 2px;

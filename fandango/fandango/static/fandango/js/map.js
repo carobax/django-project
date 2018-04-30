@@ -1,3 +1,4 @@
+// modified this code https://www.sitepoint.com/google-maps-json-file/
 function getJSONMarkers() {
           const markers = [
             {
@@ -59,6 +60,13 @@ function getJSONMarkers() {
               title: hotel.name
             })
           }
+          var contentString = '<div id="content">' + '<p>' + hotel.name +'</p>' + '</div>';
 
-        }
-    
+          var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+            marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+
+}

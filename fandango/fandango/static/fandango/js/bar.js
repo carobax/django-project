@@ -1,7 +1,9 @@
-
+// I modified Teodor's code http://jsfiddle.net/59vLw/
+// https://stackoverflow.com/questions/21639305/d3js-take-data-from-an-array-instead-of-a-file?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+// set width and height
 var margin = {top: 40, right: 20, bottom: 30, left: 40},
-    width = 600 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    width = 560 - margin.left - margin.right,
+    height = 480 - margin.top - margin.bottom;
 
 var formatWhole = d3.format("");
 
@@ -24,10 +26,11 @@ var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
+    // text appears when rolled over
     return "<strong>Rating:</strong> <span style='color:white'>" + d.frequency + "</span>";
   })
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#bar").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -35,18 +38,12 @@ var svg = d3.select("body").append("svg")
 
 svg.call(tip);
 
-// The new data variable.
+// The new data variable. I put the data from the JSON file from Fandango
 var data = [
-  {letter: "A", frequency: 1},
-  {letter: "B", frequency: 2},
-  {letter: "C", frequency: 3},
-  {letter: "D", frequency: .04253},
-  {letter: "E", frequency: .12702},
-  {letter: "F", frequency: .02288},
-  {letter: "G", frequency: .02022},
-  {letter: "H", frequency: .06094},
-  {letter: "I", frequency: .06973}
-
+  {letter: "A Quiet Place", frequency: 4.5},
+  {letter: "Black Panther", frequency: 5},
+  {letter: "Ready Player One", frequency: 4.5},
+  {letter: "A Wrinkle in Time", frequency: 3.5}
 ];
 
 // The following code was contained in the callback function.
@@ -66,7 +63,7 @@ svg.append("g")
     .attr("y", 6)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
-    .text("Rating");
+
 
 svg.selectAll(".bar")
     .data(data)

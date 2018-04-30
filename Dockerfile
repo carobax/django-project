@@ -34,3 +34,5 @@ RUN /opt/project/env/bin/django-admin startproject mysite
 
 # Switch to the unc user
 USER unc
+
+COPY . .
