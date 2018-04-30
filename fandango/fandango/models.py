@@ -26,7 +26,7 @@ class Movie(models.Model):
     poster = models.URLField()
     rating = models.CharField(max_length=10, null=True)
     movie_genre = models.CharField(max_length=50, null=True)
-    
+
 
     def get_absolute_url(self):
         from django.urls import reverse
@@ -44,16 +44,3 @@ class Showtime(models.Model):
 
     def __str__(self):
         return self.movie.title + ' / ' + self.theater.name + ' / ' + self.time
-
-
-
-# docker run -v "$PWD:/opt/project" -p 8000:8000 -it steventking/django-starter-sqlite ./env/bin/python3 fandango/manage.py runserver 0.0.0.0:8000
-
-# docker run -v "$PWD:/opt/project" -p 8000:8000 -it steventking/django-starter-sqlite ./env/bin/python3 fandango/manage.py makemigrations
-# docker run -v "$PWD:/opt/project" -p 8000:8000 -it steventking/django-starter-sqlite ./env/bin/python3 fandango/manage.py migrate
-#
-# docker run -v "$PWD:/opt/project" -p 8000:8000 -it steventking/django-starter-sqlite ./env/bin/python3 fandango/manage.py migrate --run-syncdb
-#
-# docker run -v "$PWD:/opt/project" -p 8000:8000 -it steventking/django-starter-sqlite ./env/bin/python3 fandango/manage.py createsuperuser
-
-# docker run -v "$PWD:/opt/project" -p 8000:8000 -it steventking/django-starter-sqlite ./env/bin/python3 fandango/manage.py load_movies fandango/fandango-chapelhill.json
